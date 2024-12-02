@@ -1,20 +1,11 @@
 package main
 
 import (
-	"fmt"
 	"sort"
 	"strings"
 )
 
-func Day01Part1() {
-	fmt.Println("Solution:", solvePart1(ReadFileLines("day01_input.txt")))
-}
-
-func Day01Part2() {
-	fmt.Println("Solution:", solvePart2(ReadFileLines("day01_input.txt")))
-}
-
-func solvePart1(lines []string) int64 {
+func Day01Part1(lines []string) int64 {
 	arr1 := []int{}
 	arr2 := []int{}
 	for _, line := range lines {
@@ -34,7 +25,7 @@ func solvePart1(lines []string) int64 {
 	return sum
 }
 
-func solvePart2(lines []string) int64 {
+func Day01Part2(lines []string) int64 {
 	arr1 := []int{}
 	map2 := make(map[int]int)
 	for _, line := range lines {

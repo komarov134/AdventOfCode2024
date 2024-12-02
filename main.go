@@ -1,5 +1,9 @@
 package main
 
+import (
+	"fmt"
+)
+
 func main() {
-	Day01Part2()
+	fmt.Println("Answer:", Day02Part2(ReadFileLines("day02_input.txt")))
 }

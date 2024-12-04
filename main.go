@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	fmt.Println("Answer:", Day03Part2(ReadFileLines("day03_input.txt")))
+	fmt.Println("Answer:", Day04Part2(ReadFileLines("day04_input.txt")))
 }

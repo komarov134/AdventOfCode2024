@@ -1,9 +1,10 @@
 package main
 
 import (
+	"AdventOfCode2024/day06"
 	"fmt"
 )
 
 func main() {
-	fmt.Println("Answer:", Day05Part2(ReadFileLines("day05_input.txt")))
+	fmt.Println("Answer:", day06.Part2(ReadFileLines("day06/input.txt")))
 }

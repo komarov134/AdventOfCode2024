@@ -37,3 +37,20 @@ func Abs(x int) int {
 	}
 	return x
 }
+
+func mapSlice[T any, U any](arr []T, transform func(T) U) []U {
+	var result []U
+	for _, v := range arr {
+		result = append(result, transform(v))
+	}
+	return result
+}
+
+func contains[T comparable](slice []T, elem T) bool {
+	for _, v := range slice {
+		if v == elem {
+			return true
+		}
+	}
+	return false
+}

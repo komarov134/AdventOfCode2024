@@ -1,6 +1,7 @@
 package main
 
 import (
+	"AdventOfCode2024/utils"
 	"fmt"
 	"strings"
 )
@@ -38,8 +39,8 @@ func isSafeDampener(numbers []string) bool {
 func isSafe(numbers []string) bool {
 	goodChanges := 0
 	for i := 0; i < len(numbers)-1; i++ {
-		n1 := MustAtoi(numbers[i])
-		n2 := MustAtoi(numbers[i+1])
+		n1 := utils.MustAtoi(numbers[i])
+		n2 := utils.MustAtoi(numbers[i+1])
 		diff := n2 - n1
 		if -3 <= diff && diff <= -1 {
 			goodChanges -= 1
@@ -47,7 +48,7 @@ func isSafe(numbers []string) bool {
 			goodChanges += 1
 		}
 	}
-	return Abs(goodChanges) == len(numbers)-1
+	return utils.Abs(goodChanges) == len(numbers)-1
 }
 
 func Day02Part2(lines []string) int {

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"AdventOfCode2024/utils"
 	"fmt"
 	"strings"
 )
@@ -19,11 +20,11 @@ func parseInput(lines []string) ([]Rule, [][]int) {
 			readRules = false
 		} else if readRules {
 			ruleStr := strings.Split(line, "|")
-			rule := Rule{MustAtoi(ruleStr[0]), MustAtoi(ruleStr[1])}
+			rule := Rule{utils.MustAtoi(ruleStr[0]), utils.MustAtoi(ruleStr[1])}
 			rules = append(rules, rule)
 		} else {
-			manual := mapSlice(strings.Split(line, ","), func(s string) int {
-				return MustAtoi(s)
+			manual := utils.MapSlice(strings.Split(line, ","), func(s string) int {
+				return utils.MustAtoi(s)
 			})
 			manuals = append(manuals, manual)
 		}
@@ -46,7 +47,7 @@ func Day05Part1(lines []string) int {
 func checkManual(manual []int, rules []Rule) bool {
 	for i := range manual {
 		for j := i + 1; j < len(manual); j++ {
-			if (!contains(rules, Rule{manual[i], manual[j]})) {
+			if (!utils.Contains(rules, Rule{manual[i], manual[j]})) {
 				return false
 			}
 		}
@@ -91,10 +92,10 @@ func Day05Part2(lines []string) int {
 func buildFullManual(rules []Rule) []int {
 	allElements := []int{}
 	for _, rule := range rules {
-		if !contains(allElements, rule.First) {
+		if !utils.Contains(allElements, rule.First) {
 			allElements = append(allElements, rule.First)
 		}
-		if !contains(allElements, rule.Second) {
+		if !utils.Contains(allElements, rule.Second) {
 			allElements = append(allElements, rule.Second)
 		}
 	}
@@ -107,7 +108,7 @@ func buildFullManual2(manuals [][]int) []int {
 	allElements := []int{}
 	for _, manual := range manuals {
 		for _, el := range manual {
-			if !contains(allElements, el) {
+			if !utils.Contains(allElements, el) {
 				allElements = append(allElements, el)
 			}
 		}
@@ -118,7 +119,7 @@ func buildFullManual2(manuals [][]int) []int {
 func sortManual(manual []int, rules []Rule) []int {
 	for i := range manual {
 		for j := i + 1; j < len(manual); j++ {
-			isLess := contains(rules, Rule{manual[i], manual[j]})
+			isLess := utils.Contains(rules, Rule{manual[i], manual[j]})
 			if !isLess {
 				manual[i], manual[j] = manual[j], manual[i]
 			}
@@ -130,7 +131,7 @@ func sortManual(manual []int, rules []Rule) []int {
 func fixManualOptimized(manual []int, fullManual []int) []int {
 	fixedManual := []int{}
 	for _, el := range fullManual {
-		if contains(manual, el) {
+		if utils.Contains(manual, el) {
 			fixedManual = append(fixedManual, el)
 		}
 	}

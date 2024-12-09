@@ -1,4 +1,4 @@
-package main
+package utils
 
 import (
 	"fmt"
@@ -31,6 +31,14 @@ func MustAtoi(str string) int {
 	return num
 }
 
+func MustAtoi64(str string) int64 {
+	num, err := strconv.ParseInt(str, 10, 64)
+	if err != nil {
+		panic(err) // You can change this to return a default value if preferred
+	}
+	return num
+}
+
 func Abs(x int) int {
 	if x < 0 {
 		return -x
@@ -38,7 +46,7 @@ func Abs(x int) int {
 	return x
 }
 
-func mapSlice[T any, U any](arr []T, transform func(T) U) []U {
+func MapSlice[T any, U any](arr []T, transform func(T) U) []U {
 	var result []U
 	for _, v := range arr {
 		result = append(result, transform(v))
@@ -46,7 +54,7 @@ func mapSlice[T any, U any](arr []T, transform func(T) U) []U {
 	return result
 }
 
-func contains[T comparable](slice []T, elem T) bool {
+func Contains[T comparable](slice []T, elem T) bool {
 	for _, v := range slice {
 		if v == elem {
 			return true

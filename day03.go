@@ -1,6 +1,7 @@
 package main
 
 import (
+	"AdventOfCode2024/utils"
 	"fmt"
 	"regexp"
 )
@@ -12,8 +13,8 @@ func Day03Part1(lines []string) int {
 	for _, line := range lines {
 		matches := re.FindAllStringSubmatch(line, 100000)
 		for _, match := range matches {
-			num1 := MustAtoi(match[1])
-			num2 := MustAtoi(match[2])
+			num1 := utils.MustAtoi(match[1])
+			num2 := utils.MustAtoi(match[2])
 			result += num1 * num2
 		}
 	}
@@ -35,8 +36,8 @@ func Day03Part2(lines []string) int {
 				stateEnabled = false
 			} else {
 				if stateEnabled {
-					num1 := MustAtoi(match[1])
-					num2 := MustAtoi(match[2])
+					num1 := utils.MustAtoi(match[1])
+					num2 := utils.MustAtoi(match[2])
 					result += num1 * num2
 				}
 			}

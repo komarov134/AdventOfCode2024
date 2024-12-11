@@ -1,11 +1,11 @@
 package main
 
 import (
-	"AdventOfCode2024/day10"
+	"AdventOfCode2024/day11"
 	"AdventOfCode2024/utils"
 	"fmt"
 )
 
 func main() {
-	fmt.Println("Answer:", day10.Part1(utils.ReadFileLines("day10/input.txt")))
+	fmt.Println("Answer:", day11.Part2(utils.ReadFileLines("day11/input.txt")))
 }

@@ -62,3 +62,13 @@ func Contains[T comparable](slice []T, elem T) bool {
 	}
 	return false
 }
+
+func Remove[T comparable](slice []T, elem T) []T {
+	var result []T
+	for _, v := range slice {
+		if v != elem {
+			result = append(result, v)
+		}
+	}
+	return result
+}
